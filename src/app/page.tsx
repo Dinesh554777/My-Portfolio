@@ -174,7 +174,7 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="space-y-8">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
               <Sparkles size={16} /> Available for innovative product builds
-            </div>
+            </motion.div>
             <div className="space-y-4">
               <p className="text-lg uppercase tracking-[0.35em] text-slate-400">Hello, I&apos;m</p>
               <h1 className="text-5xl font-black leading-[0.9] sm:text-6xl lg:text-7xl">
