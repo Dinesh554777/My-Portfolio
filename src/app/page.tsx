@@ -93,6 +93,12 @@ const projects = [
     stack: ['Healthcare Platform', 'Appointment Booking', 'Payment Integration', 'Analytics Dashboard'],
     link: '#',
   },
+  {
+    title: 'Python API Development',
+    description: 'Building a social media backend using Python and FastAPI, tested with Postman and backed by PostgreSQL.',
+    stack: ['Python', 'FastAPI', 'PostgreSQL', 'Postman', 'Swagger UI'],
+    link: 'https://github.com/Dinesh554777/FastAPI',
+  },
 ];
 
 const certifications = [
