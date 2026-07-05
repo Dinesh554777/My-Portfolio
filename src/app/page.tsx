@@ -130,7 +130,7 @@ const socials = [
   { icon: SquareTerminal, href: 'https://github.com', label: 'GitHub' },
   { icon: Globe2, href: 'https://linkedin.com', label: 'LinkedIn' },
   { icon: MessageCircleMore, href: 'https://leetcode.com', label: 'LeetCode' },
-  { icon: Mail, href: 'mailto:dineshd@example.com', label: 'Email' },
+  { icon: Mail, href: 'mailto:dinesh3212001@gmail.com', label: 'Email' },
 ];
 
 export default function Home() {
@@ -432,8 +432,8 @@ export default function Home() {
             <h2 className="text-3xl font-semibold sm:text-4xl">Let&apos;s build something meaningful together</h2>
             <p className="mt-5 text-slate-300">I&apos;m always interested in ambitious ideas, collaborations, and product challenges that push me to grow.</p>
             <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4"><Mail size={18} className="text-cyan-300" /> dineshd@example.com</div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4"><BriefcaseBusiness size={18} className="text-cyan-300" /> Open to internships and freelance work</div>
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4"><Mail size={18} className="text-cyan-300" /> dinesh3212001@gmail.com</div>
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4"><BriefcaseBusiness size={18} className="text-cyan-300" /> Open to internships and collaborations</div>
               <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4"><ScrollText size={18} className="text-cyan-300" /> Based in India</div>
             </div>
           </motion.div>
