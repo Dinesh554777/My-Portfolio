@@ -150,9 +150,10 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.2),_transparent_35%),linear-gradient(135deg,_#020617_0%,_#0f172a_45%,_#111827_100%)] text-slate-100">
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[-10%] top-[-10%] h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="absolute bottom-0 right-[-8%] h-80 w-80 rounded-full bg-purple-600/20 blur-3xl" />
+        <motion.div animate={{ x: [0, 40, 0], y: [0, -20, 0], scale: [1, 1.08, 1] }} transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }} className="absolute left-[-10%] top-[-10%] h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+        <motion.div animate={{ x: [0, -30, 0], y: [0, 25, 0], scale: [1, 1.06, 1] }} transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-0 right-[-8%] h-80 w-80 rounded-full bg-purple-600/20 blur-3xl" />
         <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle,_rgba(255,255,255,0.15)_1px,_transparent_1px)] [background-size:28px_28px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.08),_transparent_60%)]" />
       </div>
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
@@ -171,7 +172,7 @@ export default function Home() {
       <section id="home" className="section-shell relative z-10 min-h-screen justify-center">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
               <Sparkles size={16} /> Available for innovative product builds
             </div>
             <div className="space-y-4">
@@ -189,19 +190,19 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="#projects" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-[0_0_30px_rgba(34,211,238,0.25)]">
+              <motion.a whileHover={{ scale: 1.04, y: -2, boxShadow: '0 0 30px rgba(34,211,238,0.3)' }} whileTap={{ scale: 0.97 }} href="#projects" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-[0_0_30px_rgba(34,211,238,0.25)]">
                 View Projects <ArrowRight size={18} />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="/my-resume.pdf" download className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-slate-100">
+              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="/my-resume.pdf" download className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-slate-100 backdrop-blur-lg">
                 <Download size={18} /> Download Resume
               </motion.a>
-              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="#contact" className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-6 py-3 font-semibold text-purple-200">
+              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="#contact" className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-6 py-3 font-semibold text-purple-200 backdrop-blur-lg">
                 <Send size={18} /> Hire Me
               </motion.a>
             </div>
             <div className="flex flex-wrap gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <motion.a key={label} whileHover={{ y: -4, scale: 1.06 }} href={href} target="_blank" rel="noreferrer" className="glass-panel flex h-12 w-12 items-center justify-center text-slate-100">
+              {socials.map(({ icon: Icon, href, label }, index) => (
+                <motion.a key={label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 + index * 0.07 }} whileHover={{ y: -4, scale: 1.06, rotate: 2 }} href={href} target="_blank" rel="noreferrer" className="glass-panel flex h-12 w-12 items-center justify-center text-slate-100">
                   <Icon size={18} />
                 </motion.a>
               ))}
@@ -210,7 +211,7 @@ export default function Home() {
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative mx-auto flex w-full max-w-md justify-center">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400/30 via-slate-900/0 to-purple-500/30 blur-3xl" />
-            <div className="glass-panel relative overflow-hidden p-4">
+            <motion.div whileHover={{ scale: 1.02, rotateY: 4, rotateX: -3 }} className="glass-panel relative overflow-hidden p-4">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.2),_transparent_50%)]" />
               <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/80 p-6">
                 <div className="absolute right-4 top-4 h-3 w-3 rounded-full bg-cyan-300" />
@@ -224,38 +225,38 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute -left-4 top-8 rounded-full border border-white/10 bg-slate-900/70 p-3 text-cyan-300">
+            </motion.div>
+            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-4 top-8 rounded-full border border-white/10 bg-slate-900/70 p-3 text-cyan-300">
               <Cpu size={20} />
-            </div>
-            <div className="absolute -right-2 bottom-8 rounded-full border border-white/10 bg-slate-900/70 p-3 text-purple-300">
+            </motion.div>
+            <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 bottom-8 rounded-full border border-white/10 bg-slate-900/70 p-3 text-purple-300">
               <Database size={20} />
-            </div>
-            <div className="absolute bottom-0 left-12 rounded-full border border-white/10 bg-slate-900/70 p-3 text-cyan-300">
+            </motion.div>
+            <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-0 left-12 rounded-full border border-white/10 bg-slate-900/70 p-3 text-cyan-300">
               <Cloud size={20} />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       <section id="about" className="section-shell relative z-10">
-        <div className="mb-12 flex items-end justify-between gap-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="mb-12 flex items-end justify-between gap-4">
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-300">About</p>
             <h2 className="text-3xl font-semibold sm:text-4xl">A story shaped by curiosity and impact</h2>
           </div>
           <div className="hidden rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200 md:block">Computer Science Engineering student</div>
-        </div>
+        </motion.div>
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div whileHover={{ y: -8, rotateX: 3, rotateY: -3 }} className="glass-panel p-8">
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8, rotateX: 3, rotateY: -3, scale: 1.01 }} className="glass-panel p-8">
             <p className="text-lg leading-8 text-slate-300">
               I&apos;m a Computer Science Engineering student who loves turning ambitious ideas into scalable software. My work sits at the intersection of full-stack engineering, AI systems, and thoughtful product design. I enjoy solving real-world problems through clean architecture, modern interfaces, and practical automation.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              {['RAG', 'LLMs', 'FastAPI', 'System Design', 'Cloud Deployment'].map((item) => (
-                <span key={item} className="rounded-full border border-white/10 bg-white/10 px-3 py-2 text-sm text-slate-200">
+              {['RAG', 'LLMs', 'FastAPI', 'System Design', 'Cloud Deployment'].map((item, index) => (
+                <motion.span key={item} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: 0.05 * index }} className="rounded-full border border-white/10 bg-white/10 px-3 py-2 text-sm text-slate-200">
                   {item}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.div>
@@ -264,8 +265,8 @@ export default function Home() {
               ['2024', 'Started building software with Python and Java'],
               ['2025', 'Explored React, FastAPI, and database-driven applications'],
               ['Now', 'Building intelligent experiences with GenAI and cloud deployment'],
-            ].map(([year, text]) => (
-              <motion.div key={year} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} className="glass-panel flex items-start gap-4 p-5">
+            ].map(([year, text], index) => (
+              <motion.div key={year} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ delay: 0.08 * index }} whileHover={{ y: -4, scale: 1.01 }} className="glass-panel flex items-start gap-4 p-5">
                 <div className="rounded-full bg-cyan-400/15 p-3 text-cyan-300"><BriefcaseBusiness size={18} /></div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">{year}</p>
@@ -283,8 +284,8 @@ export default function Home() {
           <h2 className="text-3xl font-semibold sm:text-4xl">Crafting solutions with modern tools and thoughtful systems</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {skillGroups.map((group, index) => (
-            <motion.div key={group.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8, scale: 1.01 }} className="glass-panel p-6">
+          {skillGroups.map((group) => (
+            <motion.div key={group.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8, scale: 1.02, boxShadow: '0 0 30px rgba(34,211,238,0.16)' }} transition={{ duration: 0.35 }} className="glass-panel p-6">
               <div className="mb-5 flex items-center justify-between">
                 <h3 className="text-xl font-semibold text-white">{group.title}</h3>
                 <div className="rounded-full bg-cyan-400/10 p-2 text-cyan-300"><Layers3 size={16} /></div>
@@ -337,8 +338,8 @@ export default function Home() {
           <h2 className="text-3xl font-semibold sm:text-4xl">Selected work with thoughtful UX and real-world impact</h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.article key={project.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -10, scale: 1.02 }} className="glass-panel overflow-hidden">
+          {projects.map((project) => (
+            <motion.article key={project.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -10, scale: 1.02, boxShadow: '0 0 35px rgba(34,211,238,0.16)' }} transition={{ duration: 0.35 }} className="glass-panel overflow-hidden">
               <div className="border-b border-white/10 bg-slate-900/80 p-6">
                 <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800 to-slate-950 p-6">
                   <div className="mb-4 flex items-center gap-2">
@@ -346,7 +347,7 @@ export default function Home() {
                     <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
                     <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
                   </div>
-                  <div className="rounded-xl border border-cyan-400/20 bg-slate-950/80 p-4 text-sm text-slate-300">
+                  <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="rounded-xl border border-cyan-400/20 bg-slate-950/80 p-4 text-sm text-slate-300">
                     <div className="mb-3 h-24 rounded-lg bg-gradient-to-br from-cyan-500/20 via-slate-900 to-purple-500/20" />
                     <div className="space-y-2">
                       <div className="h-2 w-3/4 rounded-full bg-white/10" />
@@ -383,7 +384,7 @@ export default function Home() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {certifications.map((item, index) => (
-            <motion.div key={item} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8, rotateX: 5, rotateY: -5 }} className="glass-panel p-6">
+            <motion.div key={item} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -8, rotateX: 5, rotateY: -5, scale: 1.01 }} className="glass-panel p-6">
               <div className="mb-4 flex items-center justify-between">
                 <div className="rounded-full bg-purple-500/10 p-3 text-purple-300"><Trophy size={18} /></div>
                 <span className="text-sm text-slate-400">0{index + 1}</span>
@@ -402,7 +403,7 @@ export default function Home() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {achievements.map((item) => (
-            <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="glass-panel p-8 text-center">
+            <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} whileHover={{ y: -6, scale: 1.01 }} className="glass-panel p-8 text-center">
               <p className="text-4xl font-black text-cyan-300">{item.value}</p>
               <p className="mt-3 text-slate-300">{item.label}</p>
             </motion.div>
@@ -417,10 +418,10 @@ export default function Home() {
         </div>
         <div className="glass-panel flex flex-wrap items-center justify-center gap-4 p-8">
           {journey.map((step, index) => (
-            <div key={`${step}-${index}`} className="flex items-center gap-4">
+            <motion.div key={`${step}-${index}`} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: index * 0.05 }} className="flex items-center gap-4">
               <div className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">{step}</div>
               {index < journey.length - 1 && <ArrowRight size={16} className="text-slate-400" />}
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -439,10 +440,10 @@ export default function Home() {
           </motion.div>
           <motion.form initial={{ opacity: 0, x: 18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.25 }} className="glass-panel p-8">
             <div className="grid gap-4">
-              <input className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Name" />
-              <input className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Email" />
-              <textarea rows={5} className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Message" />
-              <button className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-3 font-semibold text-white">Send Message <Send size={16} /></button>
+              <motion.input whileFocus={{ scale: 1.01, borderColor: 'rgba(34,211,238,0.7)' }} className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Name" />
+              <motion.input whileFocus={{ scale: 1.01, borderColor: 'rgba(34,211,238,0.7)' }} className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Email" />
+              <motion.textarea rows={5} whileFocus={{ scale: 1.01, borderColor: 'rgba(34,211,238,0.7)' }} className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 outline-none ring-0" placeholder="Message" />
+              <motion.button whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-3 font-semibold text-white shadow-[0_0_30px_rgba(34,211,238,0.2)]">Send Message <Send size={16} /></motion.button>
             </div>
           </motion.form>
         </div>
