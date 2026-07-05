@@ -180,7 +180,7 @@ export default function Home() {
               <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="#projects" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-[0_0_30px_rgba(34,211,238,0.25)]">
                 View Projects <ArrowRight size={18} />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-slate-100">
+              <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="/my-resume.pdf" download className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-slate-100">
                 <Download size={18} /> Download Resume
               </motion.a>
               <motion.a whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} href="#contact" className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-6 py-3 font-semibold text-purple-200">
@@ -202,9 +202,13 @@ export default function Home() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.2),_transparent_50%)]" />
               <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/80 p-6">
                 <div className="absolute right-4 top-4 h-3 w-3 rounded-full bg-cyan-300" />
-                <div className="flex h-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-slate-800 to-slate-950">
-                  <div className="h-56 w-56 rounded-full border-4 border-cyan-400/60 bg-[radial-gradient(circle,_rgba(34,211,238,0.25),_transparent_70%)] p-2">
-                    <div className="flex h-full w-full items-center justify-center rounded-full border border-white/10 bg-slate-900 text-6xl font-black text-cyan-200">D</div>
+                <div className="flex h-full items-center justify-center rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-slate-800 to-slate-950 p-4">
+                  <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-cyan-400/60 bg-[radial-gradient(circle,_rgba(34,211,238,0.25),_transparent_70%)] p-2 shadow-[0_0_40px_rgba(34,211,238,0.2)]">
+                    <img
+                      src="/profile.jpeg"
+                      alt="Dinesh D"
+                      className="h-full w-full rounded-full object-cover object-[center_12%]"
+                    />
                   </div>
                 </div>
               </div>
