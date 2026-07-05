@@ -99,6 +99,12 @@ const projects = [
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'Postman', 'Swagger UI'],
     link: 'https://github.com/Dinesh554777/FastAPI',
   },
+  {
+    title: 'AI Chat App',
+    description: 'A simple AI-powered chat application built with FastAPI and Groq, using the Meta Llama 4 Scout 17B Instruct model for fast responses and a modular backend.',
+    stack: ['Python', 'FastAPI', 'Groq', 'Llama 4', 'HTML', 'CSS', 'JavaScript'],
+    link: 'https://github.com/Dinesh554777/Groq',
+  },
 ];
 
 const certifications = [
