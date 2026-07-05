@@ -353,7 +353,7 @@ export default function Home() {
                       <div className="h-2 w-3/4 rounded-full bg-white/10" />
                       <div className="h-2 w-1/2 rounded-full bg-white/10" />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
               <div className="space-y-4 p-6">
